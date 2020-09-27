@@ -166,7 +166,7 @@ class List extends Component<Props> {
               </Tooltip>
               <Tooltip title="Detail">
                 <IconButton
-                  onClick={() => history.push({ pathname: `/post/${post.userId}` })}
+                  onClick={() => history.push({ pathname: `/post/${post.userId}`, state: { post } })}
                   style={{ color: '#13CFB1' }} aria-label="detail"><RemoveRedEye /></IconButton>
               </Tooltip>
             </ListItem>
