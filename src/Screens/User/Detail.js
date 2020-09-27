@@ -24,29 +24,32 @@ class Detail extends Component<Props> {
     const { user, loading } = this.state
     if (loading) return null
     return (
-      <div style={{ maxWidth: 500 }}>
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
-          </ListItemAvatar>
-          <ListItemText primary={user.name} />
-        </ListItem>
-        <ListItem>
-          <ListItemText secondary ="Email Adress" />
-          <ListItemText primary ={user.email} />
-        </ListItem>
-        <ListItem>
-          <ListItemText secondary ="Username" />
-          <ListItemText primary ={user.username} />
-        </ListItem>
-        <ListItem>
-          <ListItemText secondary ="Phone Number" />
-          <ListItemText primary ={user.phone} />
-        </ListItem>
-        <ListItem>
-          <ListItemText secondary ="Website" />
-          <ListItemText primary ={user.website} />
-        </ListItem>
+      <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
+
+        <div style={{ minWidth: 500 }}>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
+            </ListItemAvatar>
+            <ListItemText primary={user.name} />
+          </ListItem>
+          <ListItem>
+            <ListItemText secondary ="Email Adress" />
+            <ListItemText primary ={user.email} />
+          </ListItem>
+          <ListItem>
+            <ListItemText secondary ="Username" />
+            <ListItemText primary ={user.username} />
+          </ListItem>
+          <ListItem>
+            <ListItemText secondary ="Phone Number" />
+            <ListItemText primary ={user.phone} />
+          </ListItem>
+          <ListItem>
+            <ListItemText secondary ="Website" />
+            <ListItemText primary ={user.website} />
+          </ListItem>
+        </div>
       </div>
     )
   }
