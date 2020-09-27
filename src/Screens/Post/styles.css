@@ -1,0 +1,8 @@
+.listItem {
+    display: flex;
+    flex: 1 
+}
+
+.listItem:hover{
+    cursor: pointer;
+}

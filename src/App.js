@@ -1,29 +1,55 @@
 /**
  * @flow
- */
-
+ **/
 import React from 'react'
-import logo from './logo.svg'
+import { Container } from '@material-ui/core'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Screens from './Screens'
 import './App.css'
+const logo = require('./logo.png')
+
+type Props = {child: JSX.Element}
+
+function Header () {
+  return (
+    <div className="header">
+      <Container>
+        <img className="logo" src={logo} />
+      </Container>
+    </div>
+  )
+}
+
+function Content (props: Props) {
+  return (
+    <div className="content">
+      {props.child}
+    </div>
+  )
+}
 
 function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Container style={{ padding: 20, paddingTop: 100 }}>
+        <Content child={
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Screens.Post.List />
+              </Route>
+              <Route exact path="/post/:id">
+                <Screens.Post.Detail />
+              </Route>
+              <Route exact path="/profile/:id">
+                <Screens.User.Detail />
+              </Route>
+            </Switch>
+          </Router>
+        }/>
+      </Container>
+    </>
   )
 }
 
